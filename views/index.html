@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Performance Testing</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/superhero/bootstrap.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.css" rel="stylesheet"></link>
+    </head>
+    <body id="body">
+		<div id="main" class="container">
+
+			<div id="homeView" class="view active">
+				<h1>Start New Performance Test</h1>
+				<form id="new_test_form" class="container">
+					<div class="form-group">
+						<label class="control-label" for="new_test_url">URL to Test</label>
+						<input class="form-control" id="new_test_url" type="text" value="http://www.motorcycle-superstore.com/">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="new_test_count">Iterations</label>
+						<input class="form-control" id="new_test_count" type="text" value="10">
+					</div>
+					<div class="form-group">
+						<div class="cf">
+							<button type="submit" id="start_test" class="btn btn-success pull-right" data-dismiss="modal">Start Test</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div id="testingView" class="view">
+				<h1>Running Test...</h1>
+				<h3></h3>
+				<h4></h4>
+				<div id="feedback" class="">
+					<img src="/images/loading.svg"/>
+					<div class="text-lg">Running Test <span class="current text-info"></span> of <span class="total text-info"></span>...</div>
+					<div class="site"></div>
+					<div class="date"></div>
+				</div>
+			</div>
+
+			<div id="resultsView" class="view">
+				<h1>Test Complete</h1>
+				<div class="site"></div>
+				<div class="date"></div>
+				<div id="results" class="row well">
+					<div class="row">
+						<div id="stats" class="">
+							<div>
+								<p class="min text-lg text-success"></p>
+								<p>Min</p>
+							</div>
+							<div>
+								<p class="average text-lg text-info"></p>
+								<p>Average</p>
+							</div>
+							<div>
+								<p class="max text-lg text-warning"></p>
+								<p>Max</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-10">
+							<canvas id="chart" width="400" height="200"></canvas>
+						</div>
+						<div id="raw" class="col-md-2"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"/></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+		<script src="/js/main.js"></script>
+    </body>
+</html>
